@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og:http://ogp.me/ns#">
+    <meta charset="utf-8" />
+
+    <!-- META DATA -->
+    <title>Wallet LOGIN</title>
+    <meta
+      name="description"
+      content="MetaMaskを使ってログインし、OpenSeaのNFTを取得します"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <style link="./css/style.css"></style>
+    <!-- END META DATA -->
+  </head>
+  <body>
+    <main>
+      <h1>Walletを使ってログインしてみる</h1>
+      <button class="enableEthereumButton">ウォレットを使ってログイン</button>
+      <h2>Account: <span class="showAccount"></span></h2>
+      <p>あなたの所有しているNFTアートは</p>
+      <ul class="nfts"></ul>
+    </main>
+
+    <script src="./javascript/walletConnect.js"></script>
+  </body>
+</html>
