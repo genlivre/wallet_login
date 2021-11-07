@@ -1,0 +1,37 @@
+// font
+@import url('https://fonts.googleapis.com/css2?family=Cambay:ital,wght@0,700;1,400&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+//  Tablet & SP
+$sp_w: 767px;
+$tab_w: 1024px;
+$container_w: 1024px;
+
+:root {
+  --main-color: #d7a625;
+  --txt-color: #333;
+
+  --space-bg-color: rgba(16, 52, 83, 1);
+  --star-color: rgba(117, 135, 200, 1);
+
+  // フォント
+  --font-jp: YakuHanJP, 'Noto Sans JP', serif;
+  --font-en: YakuHanJP, "Cambay", sans-serif;
+
+  // font-weight
+  --font-weight-R: 400;
+  --font-weight-M: 500;
+  --font-weight-B: 700;
+  --font-weight-H: 900;
+
+  // z-index
+  --z-gnav: 1000000;
+  --z-over-wrap: 1000000000000;
+
+  // crew
+  --crew-red: #d92539;
+  --crew-purple: #b557ef;
+  --crew-orange: #de8d00;
+  --crew-light-green: #9fc83d;
+  --crew-light-blue: #77b4d6;
+  --crew-green: #065d27;
+}

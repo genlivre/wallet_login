@@ -1,7 +1,6 @@
-const ethereumButton = document.querySelector(".enableEthereumButton");
-const showAccount = document.querySelector(".showAccount");
+const ethereumButton = document.querySelector("#enterRoomButton");
+const showAccount = document.querySelector(".eth-err");
 if (!window.ethereum || !window.ethereum.isMetaMask) {
-  // alert("MetaMaskをインストールしてください。");
   ethereumButton.disabled = true;
   showAccount.innerHTML = "MetaMaskをインストールしてください。";
 } else {
@@ -25,11 +24,14 @@ if (!window.ethereum || !window.ethereum.isMetaMask) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        const fetchedShow = document.querySelector("#fetchedShow");
+        fetchedShow.style.display = "block";
+        ethereumButton.style.display = "none";
 
         const dom = data.assets.map(
           (nft) =>
             `<li>
-          <img src="${nft.image_preview_url}" />
+          <a href="${nft.permalink}" target="_blank"><img src="${nft.image_preview_url}" /></a>
         </li>`
         );
 

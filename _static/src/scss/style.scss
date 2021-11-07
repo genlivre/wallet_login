@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@use 'global';
+@use 'reset';
+
+// layout
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/gnav';
+@use 'layout/main';
+
+// components
+@use 'components/login';

@@ -1,27 +1,68 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head prefix="og:http://ogp.me/ns#">
-    <meta charset="utf-8" />
+  <!DOCTYPE html>
+  <html lang="ja">
+    <head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8" />
 
-    <!-- META DATA -->
-    <title>Wallet LOGIN</title>
-    <meta
-      name="description"
-      content="MetaMaskを使ってログインし、OpenSeaのNFTを取得します"
-    />
-    <meta name="viewport" content="width=device-width" />
-    <style link="./css/style.css"></style>
-    <!-- END META DATA -->
-  </head>
-  <body>
-    <main>
-      <h1>Walletを使ってログインしてみる</h1>
-      <button class="enableEthereumButton">ウォレットを使ってログイン</button>
-      <h2>Account: <span class="showAccount"></span></h2>
-      <p>あなたの所有しているNFTアートは</p>
-      <ul class="nfts"></ul>
-    </main>
+  <!-- META DATA -->
+  <title>NFT ROOM</title>
+  <meta name="description" content="NFTを使って部屋を作ろう！" />
+  <!-- website or article -->
+  <meta name="viewport" content="width=device-width" />
+  <link rel="canonical" href="" />
+  <!-- END META DATA -->
 
-    <script src="./javascript/walletConnect.js"></script>
-  </body>
+  <!-- OGP -->
+  <meta property="og:title" content="NFT ROOM" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="ogp.png" />
+  <meta property="og:site_name" content="NFT ROOM" />
+  <meta property="og:description" content="" />
+  <meta property="fb:app_id" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="./favicon.ico" />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="./apple-touch-icon.png"
+  />
+  <link rel="stylesheet" href="./css/style.css" type="text/css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp.min.css"
+  />
+
+  <!-- FONT -->
+</head>
+    <body>
+      <main class="main">
+        <div class="login-modal" id="loginModal">
+  <div class="login-overlay"></div>
+  <div class="login-view">
+    <div class="box-wrap">
+      <h1 class="logo">NFT ROOM</h1>
+      <p class="label">
+        ウォレットを使って<br class="sp-only" />ログインしよう！
+      </p>
+      <button id="enterRoomButton" class="enter-button">ログイン</button>
+      <p class="eth-err"></p>
+
+      <div id="fetchedShow" style="display: none">
+        <p class="text-center mb20" style="color: #fff">
+          あなたのNFTコレクション(ETH)
+        </p>
+        <ul class="nfts">
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+      </main>
+
+      <script src="./javascript/walletConnect.js"></script>
+    </body>
+  </html>
 </html>

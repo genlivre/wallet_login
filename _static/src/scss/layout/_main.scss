@@ -1,0 +1,14 @@
+@use '../global' as global;
+main {
+	background: red;
+
+  .nfts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    >li {
+      width: calc((100% - 30px) / 4);
+      flex-shrink: 0;
+    }
+  }
+}
