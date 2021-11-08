@@ -1,5 +1,8 @@
 const ethereumButton = document.querySelector("#enterRoomButton");
 const showAccount = document.querySelector(".eth-err");
+let account = [];
+let collections = [];
+
 if (!window.ethereum || !window.ethereum.isMetaMask) {
   ethereumButton.disabled = true;
   showAccount.innerHTML = "MetaMaskをインストールしてください。";
@@ -8,18 +11,29 @@ if (!window.ethereum || !window.ethereum.isMetaMask) {
     getAccount();
   });
 
+  const select = document.querySelector("#select");
+  let selectValue = "";
+
+  select.addEventListener("change", (e) => {
+    selectValue = e.currentTarget.value;
+    if (selectValue === "すべて") {
+      selectValue = "";
+    }
+    fetchUserNFTs(account);
+  });
+
   async function getAccount() {
     const accounts = await ethereum.request({
       method: "eth_requestAccounts",
     });
-    const account = accounts[0];
+    account = accounts[0];
     showAccount.innerHTML = account;
     fetchUserNFTs(account);
   }
 
   async function fetchUserNFTs(owner) {
     console.log(owner);
-    const uri = `https://api.opensea.io/api/v1/assets?owner=${owner}&order_direction=desc&offset=0`;
+    const uri = `https://api.opensea.io/api/v1/assets?owner=${owner}&order_direction=desc&offset=0&collection=${selectValue}`;
     await fetch(uri)
       .then((response) => response.json())
       .then((data) => {
@@ -37,6 +51,30 @@ if (!window.ethereum || !window.ethereum.isMetaMask) {
 
         const nfts = document.querySelector(".nfts");
         nfts.innerHTML = dom.join("");
+
+        if (collections.length <= 1) {
+          collections = data.assets.map((asset) => {
+            return {
+              slug: asset.collection.slug,
+              collectionName: asset.collection.name,
+            };
+          });
+        }
+
+        const dom2 = collections.map((nft) => {
+          if (selectValue === nft.slug) {
+            return `<option value="${nft.slug}" selected>
+          ${nft.collectionName}
+        </option>`;
+          } else {
+            return `<option value="${nft.slug}">
+          ${nft.collectionName}
+        </option>`;
+          }
+        });
+
+        dom2.unshift("<option>すべて</option>");
+        select.innerHTML = dom2.join("");
       });
   }
 }
