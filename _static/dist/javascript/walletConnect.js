@@ -61,7 +61,13 @@ if (!window.ethereum || !window.ethereum.isMetaMask) {
           });
         }
 
-        const dom2 = collections.map((nft) => {
+        const result = collections.filter(
+          (element, index, self) => self.findIndex(
+            e => e.collectionName === element.collectionName
+          ) === index
+        );
+
+        const dom2 = result.map((nft) => {
           if (selectValue === nft.slug) {
             return `<option value="${nft.slug}" selected>
           ${nft.collectionName}

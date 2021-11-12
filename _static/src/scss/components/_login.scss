@@ -1,4 +1,4 @@
-@use '../global' as global;
+@use "../global" as global;
 
 .login-modal {
   position: fixed;
@@ -37,6 +37,7 @@
     max-height: 90vh;
     padding: 40px;
     overflow: hidden;
+    overflow-y: auto;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     box-shadow: inset 0px 2px 0px 0px rgb(255 255 255 / 15%), 0px 3px 0px 0px rgb(255 255 255 / 15%);
@@ -147,7 +148,7 @@
       .label {
         font-size: 18px;
         color: #fff;
-        letter-spacing: .05rem;
+        letter-spacing: 0.05rem;
       }
       .enter-button {
         display: flex;
@@ -160,9 +161,9 @@
         cursor: pointer;
         background: #fff;
         border-radius: 10px;
-        transition: .2s;
+        transition: 0.2s;
         &:hover {
-          opacity: .8;
+          opacity: 0.8;
         }
         @media screen and (max-width: global.$sp_w) {
           font-size: 16px;
